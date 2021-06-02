@@ -13,6 +13,5 @@ class AuthorListView(generic.ListView):
 
     def get(self, request):
         # 뷰 로직 작성
-        json_result = json.dumps({'test': 1})
         author_list = list(Author.objects.filter().values())
         return JsonResponse(author_list, safe=False)

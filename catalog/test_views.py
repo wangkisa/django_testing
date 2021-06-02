@@ -1,6 +1,7 @@
 import json
 
 from django.test import TestCase
+from django.urls import reverse
 
 from catalog.models import Author
 
@@ -22,6 +23,10 @@ class AuthorListViewTest(TestCase):
         # print(response)
         json_content = json.loads(response.content)
         # print('content:', response.content)
-        print('content:', json_content)
+        # print('content:', json_content)
         self.assertEqual(response.status_code, 200)
-        # self.assertEqual(14, len(json_content))
+        self.assertEqual(14, len(json_content))
+
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('catalog_list'))
+        self.assertEqual(response.status_code, 200)
