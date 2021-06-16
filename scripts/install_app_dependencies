@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/ec2-user/api/django_testing
-git pull
+cd /home/ec2-user/api
+git clone https://github.com/wangkisa/django_testing.git
